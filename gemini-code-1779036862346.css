@@ -1,0 +1,157 @@
+/* --- Cài Đặt Cơ Bản --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    overflow: hidden; /* Ngăn cuộn trang để giữ hiệu ứng nền mượt mà */
+    background-color: #0d1117; /* Màu nền dự phòng tối */
+}
+
+/* --- Cấu Hình Nền --- */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+}
+
+.background-container {
+    width: 100%;
+    height: 100%;
+    
+    /* Ghi chú: THAY THẾ URL DƯỚI ĐÂY BẰNG URL HÌNH ẢNH CỦA SẾP */
+    /* Đây là một hình ảnh demo ví dụ */
+    background-image: url('https://w0.peakpx.com/wallpaper/441/276/HD-wallpaper-glowing-eyes-sadness-dark-hair-anime-art-anime-sad-anime-girl.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7) blur(2px); /* Làm tối và mờ nền một chút để form nổi bật */
+    transition: filter 0.3s ease-out, transform 0.5s ease-out;
+}
+
+/* --- Căn Giữa Form --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    perspective: 1000px; /* Thêm phối cảnh cho hiệu ứng 3D nhẹ (tùy chọn) */
+}
+
+/* --- Hiệu Ứng Glassmorphism cho Form --- */
+.login-form {
+    background: rgba(255, 255, 255, 0.05); /* Nền mờ trắng mỏng */
+    padding: 40px 50px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 380px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Viền mờ mỏng */
+    backdrop-filter: blur(15px); /* Hiệu ứng mờ nền cốt lõi */
+    -webkit-backdrop-filter: blur(15px); /* Cho Safari */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); /* Đổ bóng sâu tạo chiều sâu */
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: formAppear 1s forwards 0.3s ease-out; /* Hiệu ứng form xuất hiện */
+}
+
+/* Hoạt ảnh form xuất hiện */
+@keyframes formAppear {
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+.login-form h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 2.2em;
+    color: white;
+}
+
+/* --- Các Nhóm Nhập Liệu --- */
+.input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.4); /* Nền nhập liệu tối */
+    color: white;
+    font-size: 1.05em;
+    box-sizing: border-box; /* Quan trọng để padding không làm tăng kích thước */
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi tập trung (focus) vào trường nhập liệu */
+.input-group input:focus {
+    outline: none;
+    border-color: rgba(255, 94, 0, 0.7); /* Màu viền cam giống ảnh */
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 94, 0, 0.4); /* Hiệu ứng tỏa sáng cam nhẹ */
+}
+
+/* --- Nút Đăng Nhập --- */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    background: #ff5e00; /* Màu cam chính xác từ ảnh của sếp */
+    color: white;
+    font-size: 1.25em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Hiệu ứng hover và active cho nút */
+.login-button:hover {
+    background-color: #e65200;
+    box-shadow: 0 5px 20px rgba(255, 94, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.login-button:active {
+    transform: scale(0.98) translateY(0);
+}
+
+/* --- Văn Bản Đăng Ký --- */
+.signup-text {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.signup-text a {
+    color: #ff5e00;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.signup-text a:hover {
+    color: #e65200;
+    text-decoration: underline;
+}
